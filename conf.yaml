@@ -1,0 +1,27 @@
+data:
+  path: ./filelist.txt
+  n_fft: 1024
+  n_hop: 320
+  sr: 24000
+  n_mels: 80
+
+model:
+  n_mels: 80
+  d_model: 256
+  n_bottleneck: 32
+  n_codebook: 1024
+  n_quantizer: 32
+  kernel_size: 5
+  num_layers: 8
+  dropout: 0.1
+
+train:
+  device: "cpu"
+  batch_size: 4
+  lr: 1.0e-4
+  epochs: 10
+  loss_weights:
+    recon: 0.25
+    commit: 0.25
+    codebook: 0.25
+    label: 0.25
